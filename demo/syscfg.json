@@ -1,0 +1,12 @@
+{
+    "system": {
+        "name": "Demo System",
+        "version": "0.1"
+    },
+    "build_parameters": {
+        "tracing": true
+    },
+    "run_parameters": {
+        "frequency": 5000
+    }
+}
