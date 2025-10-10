@@ -1,29 +1,28 @@
 {
-    "name": "Demo System",
-    "version": "0.1",
-    "documentation":
-    {
-      "contact": "See github.com/boschresearch/sunrise.demonstrator",
-      "summary": "SUNRISE Demonstrator System",
-      "description": "README.md"
-    },
-    "docker_image": "sunrise_demo_system:latest",
-    "build_command": "./build_sim.sh",
-    "run_command": "./run_sim.sh",
-    "common_parameters": null,
-    "build_parameters":
-    {
-      "tracing" : false
-    },
-    "run_parameters":
-    {
-      "frequency": 5000
-    },
-    "results": {
-      "signal_trace": {
-        "path": "simulation/build/counter_trace.vcd",
-        "type": "vcd",
-        "enabled_by": ["#/build_parameters/tracing"]
-      }
+  "name": "Demo System",
+  "version": "0.1",
+  "documentation":
+  {
+    "contact": "See github.com/boschresearch/sunrise.demonstrator",
+    "summary": "SUNRISE Demonstrator System",
+    "description": "README.md"
+  },
+  "docker_image": "sunrise-demo-system:latest",
+  "build_command": "./build_sim.sh",
+  "run_command": "./run_sim.sh",
+  "build_parameters":
+  {
+    "tracing" : false
+  },
+  "run_parameters":
+  {
+    "frequency": 5000
+  },
+  "results": {
+    "signal_trace": {
+      "path": "simulation/build/counter_trace.vcd",
+      "type": "vcd",
+      "enabled_by": ["#/build_parameters/tracing"]
     }
   }
+}

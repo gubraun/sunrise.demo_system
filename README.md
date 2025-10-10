@@ -12,16 +12,16 @@ As a prerequisite, you need to have [Docker](https://docs.docker.com/get-docker/
 The included [Dockerfile](Dockerfile) is used to create a Docker image with all dependencies required for the simulation.
 The SUNRISE _Runtime Manager_ expects that the Docker image is already built and available on a Docker registry.
 
-To build the image named _sunrise_demo_system:latest_, call from the repository root directory:
+To build the image named _sunrise-demo-system:latest_, call from the repository root directory:
 ```sh
-docker build -t sunrise_demo_system .
+docker build -t sunrise-demo-system .
 ```
 
 ### Manual Run for Testing
 To **start the container** interactively from the repository root directory to verify everything works as expected, run:
 ```sh
 # start the container with an interactive shell
-docker run --rm -it -v ./simulation:/work --workdir=/work sunrise_demo_system:latest
+docker run --rm -it -v ./simulation:/work --workdir=/work sunrise-demo-system:latest
 ```
 Inside the containers shell you can **build and run the simulation**:
 ```sh
@@ -49,10 +49,10 @@ The System API (SysAPI) implementation is defined with the [System Definition JS
 As defined there, the SysAPI _action steps_ are implemented with shell scripts for simulation build and run. They will be called by the Runtime Manager as:
 ```sh
 # the build step
-docker run --rm -v .:/sysapi --workdir=/sysapi sunrise_demo_system:latest ./build_sim.sh demo/syscfg.json
+docker run --rm -v .:/sysapi --workdir=/sysapi sunrise-demo-system:latest ./build_sim.sh demo/syscfg.json
 
 # the run step
-docker run --rm -v .:/sysapi --workdir=/sysapi sunrise_demo_system:latest ./run_sim.sh demo/syscfg.json
+docker run --rm -v .:/sysapi --workdir=/sysapi sunrise-demo-system:latest ./run_sim.sh demo/syscfg.json
 ```
 
 
