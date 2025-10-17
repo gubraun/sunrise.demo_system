@@ -1,6 +1,8 @@
 # Demonstrator System for SUNRISE
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+![Test Status](https://github.com/boschresearch/sunrise.demo_system/actions/workflows/build_and_test.yml/badge.svg?branch=master)
+
 This repository provides a minimal _system_ implementation intended for use within the [SUNRISE Infrastructure Demonstrator](https://github.com/boschresearch/sunrise.demonstrator) (_**S**calable **Un**ified **R**ESTful **I**nfrastructure for **S**ystem **E**valuation_).
 
 

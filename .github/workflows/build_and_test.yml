@@ -1,0 +1,28 @@
+name: Build and Test the Docker Image
+
+on:
+  push:
+    branches: ["master", "dev"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build the Docker image
+      run: docker build -t sunrise-demo-system:workflow .
+
+    - name: Call SysAPI build step
+      run: docker run --rm -v .:/sysapi --workdir=/sysapi sunrise-demo-system:workflow ./build_sim.sh demo/syscfg.json
+
+    - name: Check if sim executable was created
+      run: test -f simulation/build/demo_sim
+
+    - name: Call SysAPI run step
+      run: docker run --rm -v .:/sysapi --workdir=/sysapi sunrise-demo-system:workflow ./run_sim.sh demo/syscfg.json
+
+    - name: Check if trace file was written
+      run: test -f simulation/build/counter_trace.vcd
