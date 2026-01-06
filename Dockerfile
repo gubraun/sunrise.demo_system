@@ -18,6 +18,11 @@ RUN echo "Europe/Berlin" > /etc/timezone && apt-get install -y tzdata && dpkg-re
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /work
 
+# Install Zscaler stuff
+COPY zscaler-certs.crt /usr/local/share/ca-certificates/zscaler-certs.crt
+RUN apt-get install -y ca-certificates && update-ca-certificates
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 # Install packages for c++ build
 RUN apt-get install -y build-essential g++ cmake python3 python3-pip
 
